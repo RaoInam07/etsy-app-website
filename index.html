@@ -1,28 +1,468 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Etsy Order Management App</title>
+
+    <meta name="description"
+          content="An automation application designed to help Etsy sellers manage orders and streamline customer communication.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: #222;
+            background: #f8f8f8;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e5e5;
+            padding: 20px 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: #444;
+            text-decoration: none;
+            margin-left: 24px;
+        }
+
+        .hero {
+            background: #ffffff;
+            padding: 90px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 44px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            max-width: 720px;
+            margin: auto;
+            font-size: 19px;
+            color: #555;
+        }
+
+        .section {
+            padding: 65px 20px;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 35px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border: 1px solid #e5e5e5;
+            border-radius: 10px;
+        }
+
+        .card h3 {
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #555;
+        }
+
+        .steps {
+            max-width: 750px;
+            margin: auto;
+        }
+
+        .step {
+            background: white;
+            margin-bottom: 15px;
+            padding: 22px;
+            border-radius: 8px;
+            border: 1px solid #e5e5e5;
+        }
+
+        .step strong {
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .notice {
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 25px;
+            border-radius: 8px;
+            max-width: 850px;
+            margin: auto;
+            font-size: 14px;
+        }
+
+        .contact {
+            text-align: center;
+            background: #ffffff;
+        }
+
+        footer {
+            background: #222;
+            color: #fff;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: #fff;
+            margin: 0 10px;
+        }
+
+        @media (max-width: 750px) {
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Etsy Order Management App</h1>
+
+<header>
+    <div class="container">
+        <nav>
+            <div class="logo">Etsy Order Management App</div>
+
+            <div>
+                <a href="#about">About</a>
+                <a href="#features">Features</a>
+                <a href="#privacy">Privacy</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+
+<section class="hero">
+
+    <div class="container">
+
+        <h1>Etsy Order Management & Automation</h1>
+
+        <p>
+            An automation application designed to help Etsy sellers
+            manage order information and streamline customer communication.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section id="about" class="section">
+
+    <div class="container">
+
+        <h2>About the Application</h2>
+
+        <div class="notice">
+
+            <p>
+                This application is designed to help Etsy sellers
+                simplify order-related workflows and improve customer
+                communication.
+            </p>
+
+            <br>
+
+            <p>
+                The application can integrate with Etsy through the
+                Etsy Open API and may automate selected order-management
+                and customer-communication workflows based on the
+                permissions granted by the seller.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="features" class="section">
+
+    <div class="container">
+
+        <h2>Features</h2>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>Order Management</h3>
+
+                <p>
+                    Retrieve and organize relevant Etsy order information
+                    to support seller order-management workflows.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>Customer Communication</h3>
+
+                <p>
+                    Support automated customer communication workflows
+                    for order-related confirmations and information.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>Workflow Automation</h3>
+
+                <p>
+                    Reduce repetitive manual tasks by connecting
+                    order information with automated business workflows.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="container">
+
+        <h2>How It Works</h2>
+
+        <div class="steps">
+
+            <div class="step">
+
+                <strong>1. Seller Authorization</strong>
+
+                The seller authorizes the application to access
+                the Etsy data required for the selected workflow.
+
+            </div>
+
+
+            <div class="step">
+
+                <strong>2. Order Information</strong>
+
+                The application processes relevant order information
+                available through the Etsy Open API.
+
+            </div>
+
+
+            <div class="step">
+
+                <strong>3. Automated Workflow</strong>
+
+                Order information can trigger configured automation
+                workflows for the seller.
+
+            </div>
+
+
+            <div class="step">
+
+                <strong>4. Customer Communication</strong>
+
+                Where configured, the workflow can assist with
+                order-related customer communication.
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="privacy" class="section">
+
+    <div class="container">
+
+        <h2>Privacy & Data Protection</h2>
+
+        <div class="notice">
+
+            <p>
+                The application is designed to access only the Etsy
+                information required for its configured functionality
+                and the permissions authorized by the seller.
+            </p>
+
+            <br>
+
+            <p>
+                Etsy API credentials, OAuth tokens, and other sensitive
+                authentication information should be handled securely
+                and must not be publicly exposed.
+            </p>
+
+            <br>
+
+            <p>
+                This page provides general information about the
+                application. A detailed privacy policy should be provided
+                before the application is made available to additional
+                users or processes personal information at scale.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="container">
+
+        <h2>Terms of Service</h2>
+
+        <div class="notice">
+
+            <p>
+                This application is provided as an automation tool for
+                Etsy sellers. Use of the application is subject to the
+                permissions granted by the seller and the applicable
+                Etsy API Terms of Use.
+            </p>
+
+            <br>
+
+            <p>
+                The application does not represent itself as Etsy and
+                is not operated, owned, or endorsed by Etsy, Inc.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="notice">
+
+            <strong>Etsy Trademark Disclaimer</strong>
+
+            <br><br>
+
+            The term "Etsy" is a trademark of Etsy, Inc.
+            This application uses the Etsy API but is not endorsed
+            or certified by Etsy, Inc.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="contact" class="section contact">
+
+    <div class="container">
+
+        <h2>Contact & Support</h2>
+
+        <p>
+            For application support or questions, please contact
+            the application developer.
+        </p>
+
+        <br>
+
+        <p>
+            Support contact information will be provided to
+            application users as the service is launched.
+        </p>
+
+    </div>
+
+</section>
+
+
+<footer>
 
     <p>
-        This application helps manage Etsy orders and automate
-        customer communication through WhatsApp.
+        © 2026 Etsy Order Management App. All rights reserved.
     </p>
 
-    <h2>About</h2>
+    <br>
+
     <p>
-        Our app is designed to help Etsy sellers manage orders,
-        confirm customer details, and automate order-related
-        communication.
+        This application uses the Etsy API.
+        It is not affiliated with or endorsed by Etsy, Inc.
     </p>
 
-    <h2>Contact</h2>
-    <p>
-        For questions or support, please contact the app developer.
-    </p>
+</footer>
+
 </body>
 </html>
+```
