@@ -7,7 +7,7 @@
     <title>Etsy Order Management App</title>
 
     <meta name="description"
-          content="An automation application designed to help Etsy sellers manage orders and streamline customer communication.">
+          content="Etsy order management and workflow automation application for Etsy sellers.">
 
     <style>
         * {
@@ -36,7 +36,7 @@
         /* HEADER */
 
         header {
-            background: rgba(255, 255, 255, 0.97);
+            background: rgba(255,255,255,0.97);
             border-bottom: 1px solid #e8e5df;
             padding: 20px 0;
             position: sticky;
@@ -60,7 +60,7 @@
         nav a {
             color: #555;
             text-decoration: none;
-            margin-left: 24px;
+            margin-left: 22px;
             font-size: 14px;
             font-weight: 600;
         }
@@ -72,18 +72,18 @@
         /* HERO */
 
         .hero {
-            padding: 105px 20px 115px;
+            padding: 110px 20px 120px;
             text-align: center;
             background:
                 radial-gradient(
                     circle at top right,
-                    rgba(216, 90, 42, 0.14),
+                    rgba(216,90,42,0.15),
                     transparent 35%
                 ),
                 linear-gradient(
                     135deg,
-                    #fffdf9 0%,
-                    #f8f7f4 100%
+                    #fffdf9,
+                    #f8f7f4
                 );
             border-bottom: 1px solid #ebe7df;
         }
@@ -128,18 +128,18 @@
         }
 
         .card {
-            background: #ffffff;
+            background: #fff;
             padding: 34px;
             border: 1px solid #e9e5de;
             border-radius: 16px;
-            box-shadow: 0 8px 30px rgba(30, 30, 30, 0.05);
+            box-shadow: 0 8px 30px rgba(30,30,30,0.05);
             transition: 0.25s ease;
         }
 
         .card:hover {
             transform: translateY(-6px);
             border-color: #e4b49d;
-            box-shadow: 0 16px 40px rgba(30, 30, 30, 0.09);
+            box-shadow: 0 16px 40px rgba(30,30,30,0.09);
         }
 
         .card h3 {
@@ -161,12 +161,12 @@
         }
 
         .step {
-            background: #ffffff;
+            background: #fff;
             margin-bottom: 16px;
             padding: 25px 28px;
             border-radius: 14px;
             border: 1px solid #e9e5de;
-            box-shadow: 0 5px 22px rgba(30, 30, 30, 0.04);
+            box-shadow: 0 5px 22px rgba(30,30,30,0.04);
         }
 
         .step strong {
@@ -176,16 +176,16 @@
             font-size: 17px;
         }
 
-        /* INFORMATION BOX */
+        /* INFO BOX */
 
         .notice {
-            background: #ffffff;
+            background: #fff;
             border: 1px solid #e7e2da;
             padding: 32px;
             border-radius: 16px;
             max-width: 880px;
             margin: auto;
-            box-shadow: 0 8px 30px rgba(30, 30, 30, 0.04);
+            box-shadow: 0 8px 30px rgba(30,30,30,0.04);
             color: #555;
         }
 
@@ -197,11 +197,26 @@
 
         .contact {
             text-align: center;
-            background: linear-gradient(135deg, #fffaf5, #ffffff);
+            background: linear-gradient(135deg,#fffaf5,#fff);
         }
 
         .contact p {
             color: #666;
+        }
+
+        .email {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 22px;
+            background: #242424;
+            color: #fff;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .email:hover {
+            background: #d85a2a;
         }
 
         /* FOOTER */
@@ -261,14 +276,23 @@
             .section h2 {
                 font-size: 28px;
             }
+
+            .notice,
+            .card,
+            .step {
+                padding: 24px;
+            }
         }
     </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
+
 <header>
     <div class="container">
+
         <nav>
 
             <div class="logo">
@@ -280,10 +304,12 @@
                 <a href="#features">Features</a>
                 <a href="#how-it-works">How It Works</a>
                 <a href="#privacy">Privacy</a>
+                <a href="#terms">Terms</a>
                 <a href="#contact">Contact</a>
             </div>
 
         </nav>
+
     </div>
 </header>
 
@@ -330,7 +356,7 @@
                 The application can integrate with the Etsy Open API
                 and may automate selected order-management and
                 customer-communication workflows based on the
-                permissions granted by the seller.
+                permissions authorized by the seller.
             </p>
 
             <br>
@@ -484,14 +510,14 @@
 
             <p>
                 Information accessed through the Etsy Open API is used
-                only to provide and operate the application's configured
+                to provide and operate the application's configured
                 order-management and automation functionality.
             </p>
 
             <br>
 
             <p>
-                <strong>Authentication & Security</strong>
+                <strong>Authentication and Security</strong>
             </p>
 
             <p>
@@ -520,21 +546,21 @@
             </p>
 
             <p>
-                Data should be retained only for as long as necessary
-                to provide the requested functionality and meet applicable
-                operational or legal requirements.
+                Data is intended to be retained only for as long as
+                necessary to provide the requested functionality and
+                meet applicable operational or legal requirements.
             </p>
 
             <br>
 
             <p>
-                <strong>Contact</strong>
+                <strong>Data Security</strong>
             </p>
 
             <p>
-                For privacy or data-related questions, please contact
-                the application developer through the support contact
-                provided below.
+                Reasonable technical and organizational measures should
+                be used to protect application data and authentication
+                credentials from unauthorized access or disclosure.
             </p>
 
         </div>
@@ -629,12 +655,9 @@
             inquiries, please contact the application developer.
         </p>
 
-        <br>
-
-        <p>
-            <strong>Support Email:</strong>
+        <a class="email" href="mailto:YOUR_EMAIL_HERE">
             raoinam07@gmail.com
-        </p>
+        </a>
 
     </div>
 
