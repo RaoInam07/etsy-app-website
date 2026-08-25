@@ -3,317 +3,266 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Etsy Order Management App</title>
 
-<style>
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
+    <meta name="description"
+          content="An automation application designed to help Etsy sellers manage orders and streamline customer communication.">
 
-    html {
-        scroll-behavior: smooth;
-    }
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    body {
-        font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
-                     Roboto, Arial, sans-serif;
-        line-height: 1.6;
-        color: #242424;
-        background: #f8f7f4;
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    .container {
-        width: 90%;
-        max-width: 1120px;
-        margin: 0 auto;
-    }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: #242424;
+            background: #f8f7f4;
+        }
 
-    /* =========================
-       HEADER
-    ========================= */
+        .container {
+            width: 90%;
+            max-width: 1120px;
+            margin: 0 auto;
+        }
 
-    header {
-        background: rgba(255, 255, 255, 0.96);
-        border-bottom: 1px solid #e8e5df;
-        padding: 20px 0;
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        backdrop-filter: blur(10px);
-    }
+        /* HEADER */
 
-    nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 20px;
-    }
-
-    .logo {
-        font-size: 21px;
-        font-weight: 750;
-        color: #242424;
-    }
-
-    nav a {
-        color: #555;
-        text-decoration: none;
-        margin-left: 25px;
-        font-size: 14px;
-        font-weight: 600;
-        transition: color 0.2s ease;
-    }
-
-    nav a:hover {
-        color: #d85a2a;
-    }
-
-    /* =========================
-       HERO
-    ========================= */
-
-    .hero {
-        padding: 105px 20px 115px;
-        text-align: center;
-        background:
-            radial-gradient(
-                circle at top right,
-                rgba(231, 112, 57, 0.16),
-                transparent 35%
-            ),
-            linear-gradient(
-                135deg,
-                #fffdf9 0%,
-                #f8f7f4 100%
-            );
-        border-bottom: 1px solid #ebe7df;
-    }
-
-    .hero h1 {
-        max-width: 850px;
-        margin: 0 auto 25px;
-        font-size: clamp(38px, 6vw, 62px);
-        line-height: 1.08;
-        letter-spacing: -1.8px;
-        color: #202020;
-    }
-
-    .hero p {
-        max-width: 720px;
-        margin: auto;
-        font-size: 19px;
-        line-height: 1.7;
-        color: #626262;
-    }
-
-    /* =========================
-       SECTIONS
-    ========================= */
-
-    .section {
-        padding: 80px 20px;
-    }
-
-    .section:nth-of-type(even) {
-        background: #ffffff;
-    }
-
-    .section h2 {
-        text-align: center;
-        font-size: 34px;
-        line-height: 1.2;
-        margin-bottom: 42px;
-        color: #242424;
-        letter-spacing: -0.5px;
-    }
-
-    /* =========================
-       CARDS
-    ========================= */
-
-    .cards {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
-    }
-
-    .card {
-        background: #ffffff;
-        padding: 34px;
-        border: 1px solid #e9e5de;
-        border-radius: 16px;
-        box-shadow: 0 8px 30px rgba(30, 30, 30, 0.05);
-        transition:
-            transform 0.25s ease,
-            box-shadow 0.25s ease,
-            border-color 0.25s ease;
-    }
-
-    .card:hover {
-        transform: translateY(-6px);
-        border-color: #e4b49d;
-        box-shadow: 0 16px 40px rgba(30, 30, 30, 0.09);
-    }
-
-    .card h3 {
-        margin-bottom: 13px;
-        font-size: 20px;
-        color: #242424;
-    }
-
-    .card p {
-        color: #666;
-        font-size: 15px;
-    }
-
-    /* =========================
-       HOW IT WORKS
-    ========================= */
-
-    .steps {
-        max-width: 780px;
-        margin: auto;
-    }
-
-    .step {
-        position: relative;
-        background: #ffffff;
-        margin-bottom: 16px;
-        padding: 25px 28px;
-        border-radius: 14px;
-        border: 1px solid #e9e5de;
-        box-shadow: 0 5px 22px rgba(30, 30, 30, 0.04);
-        transition: transform 0.2s ease;
-    }
-
-    .step:hover {
-        transform: translateX(5px);
-    }
-
-    .step strong {
-        display: block;
-        margin-bottom: 7px;
-        color: #d85a2a;
-        font-size: 17px;
-    }
-
-    /* =========================
-       INFO BOX
-    ========================= */
-
-    .notice {
-        background: #ffffff;
-        border: 1px solid #e7e2da;
-        padding: 32px;
-        border-radius: 16px;
-        max-width: 880px;
-        margin: auto;
-        box-shadow: 0 8px 30px rgba(30, 30, 30, 0.04);
-        color: #555;
-    }
-
-    .notice strong {
-        color: #242424;
-    }
-
-    /* =========================
-       DISCLAIMER
-    ========================= */
-
-    .notice strong:first-child {
-        font-size: 18px;
-    }
-
-    /* =========================
-       CONTACT
-    ========================= */
-
-    .contact {
-        text-align: center;
-        background:
-            linear-gradient(
-                135deg,
-                #fffaf5,
-                #ffffff
-            );
-    }
-
-    .contact p {
-        color: #666;
-    }
-
-    /* =========================
-       FOOTER
-    ========================= */
-
-    footer {
-        background: #242424;
-        color: #d8d8d8;
-        text-align: center;
-        padding: 38px 20px;
-        font-size: 14px;
-    }
-
-    footer p {
-        max-width: 700px;
-        margin: auto;
-    }
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 800px) {
-
-        .cards {
-            grid-template-columns: 1fr;
+        header {
+            background: rgba(255, 255, 255, 0.97);
+            border-bottom: 1px solid #e8e5df;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         nav {
-            flex-direction: column;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: 700;
+            color: #242424;
         }
 
         nav a {
-            margin: 0 8px;
+            color: #555;
+            text-decoration: none;
+            margin-left: 24px;
+            font-size: 14px;
+            font-weight: 600;
         }
+
+        nav a:hover {
+            color: #d85a2a;
+        }
+
+        /* HERO */
 
         .hero {
-            padding: 75px 20px 85px;
+            padding: 105px 20px 115px;
+            text-align: center;
+            background:
+                radial-gradient(
+                    circle at top right,
+                    rgba(216, 90, 42, 0.14),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    135deg,
+                    #fffdf9 0%,
+                    #f8f7f4 100%
+                );
+            border-bottom: 1px solid #ebe7df;
         }
 
         .hero h1 {
-            font-size: 40px;
-        }
-
-        .section {
-            padding: 60px 20px;
-        }
-    }
-
-    @media (max-width: 500px) {
-
-        .hero h1 {
-            font-size: 34px;
+            max-width: 850px;
+            margin: 0 auto 25px;
+            font-size: clamp(38px, 6vw, 62px);
+            line-height: 1.08;
+            letter-spacing: -1.8px;
+            color: #202020;
         }
 
         .hero p {
-            font-size: 17px;
+            max-width: 720px;
+            margin: auto;
+            font-size: 19px;
+            line-height: 1.7;
+            color: #626262;
+        }
+
+        /* SECTIONS */
+
+        .section {
+            padding: 80px 20px;
         }
 
         .section h2 {
-            font-size: 28px;
+            text-align: center;
+            font-size: 34px;
+            line-height: 1.2;
+            margin-bottom: 42px;
+            color: #242424;
         }
 
-        .notice,
-        .card,
-        .step {
-            padding: 24px;
+        /* CARDS */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
         }
-    }
-</style>
-    
+
+        .card {
+            background: #ffffff;
+            padding: 34px;
+            border: 1px solid #e9e5de;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(30, 30, 30, 0.05);
+            transition: 0.25s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: #e4b49d;
+            box-shadow: 0 16px 40px rgba(30, 30, 30, 0.09);
+        }
+
+        .card h3 {
+            margin-bottom: 13px;
+            font-size: 20px;
+            color: #242424;
+        }
+
+        .card p {
+            color: #666;
+            font-size: 15px;
+        }
+
+        /* STEPS */
+
+        .steps {
+            max-width: 780px;
+            margin: auto;
+        }
+
+        .step {
+            background: #ffffff;
+            margin-bottom: 16px;
+            padding: 25px 28px;
+            border-radius: 14px;
+            border: 1px solid #e9e5de;
+            box-shadow: 0 5px 22px rgba(30, 30, 30, 0.04);
+        }
+
+        .step strong {
+            display: block;
+            margin-bottom: 7px;
+            color: #d85a2a;
+            font-size: 17px;
+        }
+
+        /* INFORMATION BOX */
+
+        .notice {
+            background: #ffffff;
+            border: 1px solid #e7e2da;
+            padding: 32px;
+            border-radius: 16px;
+            max-width: 880px;
+            margin: auto;
+            box-shadow: 0 8px 30px rgba(30, 30, 30, 0.04);
+            color: #555;
+        }
+
+        .notice strong {
+            color: #242424;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            text-align: center;
+            background: linear-gradient(135deg, #fffaf5, #ffffff);
+        }
+
+        .contact p {
+            color: #666;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #242424;
+            color: #d8d8d8;
+            text-align: center;
+            padding: 38px 20px;
+            font-size: 14px;
+        }
+
+        footer p {
+            max-width: 750px;
+            margin: auto;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                flex-direction: column;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .hero {
+                padding: 75px 20px 85px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .section {
+                padding: 60px 20px;
+            }
+
+            .section h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -321,34 +270,54 @@
 <header>
     <div class="container">
         <nav>
-            <div class="logo">Etsy Order Management App</div>
+
+            <div class="logo">
+                Etsy Order Management App
+            </div>
 
             <div>
                 <a href="#about">About</a>
                 <a href="#features">Features</a>
+                <a href="#how-it-works">How It Works</a>
                 <a href="#privacy">Privacy</a>
                 <a href="#contact">Contact</a>
             </div>
+
         </nav>
     </div>
 </header>
 
+
+<!-- HERO -->
+
 <section class="hero">
+
     <div class="container">
-        <h1>Etsy Order Management & Automation</h1>
+
+        <h1>
+            Etsy Order Management & Automation
+        </h1>
 
         <p>
             An automation application designed to help Etsy sellers
             manage order information and streamline customer communication.
         </p>
+
     </div>
+
 </section>
 
+
+<!-- ABOUT -->
+
 <section id="about" class="section">
+
     <div class="container">
+
         <h2>About the Application</h2>
 
         <div class="notice">
+
             <p>
                 This application is designed to help Etsy sellers
                 simplify order-related workflows and improve customer
@@ -358,172 +327,324 @@
             <br>
 
             <p>
-                The application can integrate with Etsy through the
-                Etsy Open API and may automate selected order-management
-                and customer-communication workflows based on the
+                The application can integrate with the Etsy Open API
+                and may automate selected order-management and
+                customer-communication workflows based on the
                 permissions granted by the seller.
-            </p>
-        </div>
-    </div>
-</section>
-
-<section id="features" class="section">
-    <div class="container">
-        <h2>Features</h2>
-
-        <div class="cards">
-
-            <div class="card">
-                <h3>Order Management</h3>
-                <p>
-                    Retrieve and organize relevant Etsy order information
-                    to support seller order-management workflows.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Customer Communication</h3>
-                <p>
-                    Support automated customer communication workflows
-                    for order-related confirmations and information.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Workflow Automation</h3>
-                <p>
-                    Reduce repetitive manual tasks by connecting
-                    order information with automated business workflows.
-                </p>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<section class="section">
-    <div class="container">
-        <h2>How It Works</h2>
-
-        <div class="steps">
-
-            <div class="step">
-                <strong>1. Seller Authorization</strong>
-                The seller authorizes the application to access
-                the Etsy data required for the selected workflow.
-            </div>
-
-            <div class="step">
-                <strong>2. Order Information</strong>
-                The application processes relevant order information
-                available through the Etsy Open API.
-            </div>
-
-            <div class="step">
-                <strong>3. Automated Workflow</strong>
-                Order information can trigger configured automation
-                workflows for the seller.
-            </div>
-
-            <div class="step">
-                <strong>4. Customer Communication</strong>
-                Where configured, the workflow can assist with
-                order-related customer communication.
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<section id="privacy" class="section">
-    <div class="container">
-        <h2>Privacy & Data Protection</h2>
-
-        <div class="notice">
-            <p>
-                The application is designed to access only the Etsy
-                information required for its configured functionality
-                and the permissions authorized by the seller.
             </p>
 
             <br>
 
             <p>
-                Etsy API credentials, OAuth tokens, and other sensitive
-                authentication information should be handled securely
+                The application is independently developed and is not
+                operated, owned, or endorsed by Etsy, Inc.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FEATURES -->
+
+<section id="features" class="section">
+
+    <div class="container">
+
+        <h2>Features</h2>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>Order Management</h3>
+
+                <p>
+                    Retrieve and organize relevant Etsy order information
+                    to support seller order-management workflows.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>Customer Communication</h3>
+
+                <p>
+                    Support automated customer communication workflows
+                    for order-related confirmations and information.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>Workflow Automation</h3>
+
+                <p>
+                    Reduce repetitive manual tasks by connecting
+                    order information with configured automation workflows.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- HOW IT WORKS -->
+
+<section id="how-it-works" class="section">
+
+    <div class="container">
+
+        <h2>How It Works</h2>
+
+        <div class="steps">
+
+            <div class="step">
+
+                <strong>1. Seller Authorization</strong>
+
+                The seller authorizes the application to access
+                the Etsy data required for the selected workflow.
+
+            </div>
+
+
+            <div class="step">
+
+                <strong>2. Order Information</strong>
+
+                The application processes relevant order information
+                available through the Etsy Open API.
+
+            </div>
+
+
+            <div class="step">
+
+                <strong>3. Automated Workflow</strong>
+
+                Order information can trigger configured automation
+                workflows for the seller.
+
+            </div>
+
+
+            <div class="step">
+
+                <strong>4. Customer Communication</strong>
+
+                Where configured, the workflow can assist with
+                order-related customer communication.
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PRIVACY -->
+
+<section id="privacy" class="section">
+
+    <div class="container">
+
+        <h2>Privacy Policy</h2>
+
+        <div class="notice">
+
+            <p>
+                <strong>Information We Access</strong>
+            </p>
+
+            <p>
+                Depending on the functionality authorized by the seller,
+                the application may access Etsy shop, order, transaction,
+                shipping, and related information required to provide
+                the configured automation.
+            </p>
+
+            <br>
+
+            <p>
+                <strong>How Information Is Used</strong>
+            </p>
+
+            <p>
+                Information accessed through the Etsy Open API is used
+                only to provide and operate the application's configured
+                order-management and automation functionality.
+            </p>
+
+            <br>
+
+            <p>
+                <strong>Authentication & Security</strong>
+            </p>
+
+            <p>
+                Etsy OAuth authentication is used where required.
+                API credentials, OAuth tokens, and other sensitive
+                authentication information must be stored securely
                 and must not be publicly exposed.
             </p>
 
             <br>
 
             <p>
-                A detailed privacy policy should be provided before
-                the application is made available to additional users
-                or processes personal information at scale.
+                <strong>Data Sharing</strong>
             </p>
-        </div>
-    </div>
-</section>
 
-<section class="section">
-    <div class="container">
-        <h2>Terms of Service</h2>
-
-        <div class="notice">
             <p>
-                This application is provided as an automation tool for
-                Etsy sellers. Use of the application is subject to the
-                permissions granted by the seller and applicable Etsy
-                API Terms of Use.
+                Information is not sold to third parties. Data may be
+                processed by service providers required to operate the
+                application's configured automation workflows.
             </p>
 
             <br>
 
             <p>
-                The application does not represent itself as Etsy and
-                is not operated, owned, or endorsed by Etsy, Inc.
+                <strong>Data Retention</strong>
             </p>
+
+            <p>
+                Data should be retained only for as long as necessary
+                to provide the requested functionality and meet applicable
+                operational or legal requirements.
+            </p>
+
+            <br>
+
+            <p>
+                <strong>Contact</strong>
+            </p>
+
+            <p>
+                For privacy or data-related questions, please contact
+                the application developer through the support contact
+                provided below.
+            </p>
+
         </div>
+
     </div>
+
 </section>
 
+
+<!-- TERMS -->
+
+<section id="terms" class="section">
+
+    <div class="container">
+
+        <h2>Terms of Service</h2>
+
+        <div class="notice">
+
+            <p>
+                This application is provided as an automation tool
+                for Etsy sellers.
+            </p>
+
+            <br>
+
+            <p>
+                Use of the application is subject to the permissions
+                granted by the seller, applicable Etsy API Terms of Use,
+                and applicable laws and regulations.
+            </p>
+
+            <br>
+
+            <p>
+                The application is independently developed and does not
+                represent itself as Etsy or as an Etsy-owned service.
+            </p>
+
+            <br>
+
+            <p>
+                The application may be updated, modified, suspended,
+                or discontinued as required for maintenance, security,
+                compliance, or product development.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ETSY DISCLAIMER -->
+
 <section class="section">
+
     <div class="container">
 
         <div class="notice">
-            <strong>Etsy Trademark Disclaimer</strong>
 
-            <br><br>
+            <p>
+                <strong>Etsy Trademark Disclaimer</strong>
+            </p>
 
-            The term "Etsy" is a trademark of Etsy, Inc.
-            This application uses the Etsy API but is not endorsed
-            or certified by Etsy, Inc.
+            <br>
+
+            <p>
+                The term "Etsy" is a trademark of Etsy, Inc.
+                This application uses the Etsy API but is not endorsed
+                or certified by Etsy, Inc.
+            </p>
+
         </div>
 
     </div>
+
 </section>
 
+
+<!-- CONTACT -->
+
 <section id="contact" class="section contact">
+
     <div class="container">
 
         <h2>Contact & Support</h2>
 
         <p>
-            For application support or questions, please contact
-            the application developer.
+            For application support, privacy questions, or other
+            inquiries, please contact the application developer.
         </p>
 
         <br>
 
         <p>
-            Support contact information will be provided to
-            application users as the service is launched.
+            <strong>Support Email:</strong>
+            YOUR_EMAIL_HERE
         </p>
 
     </div>
+
 </section>
 
+
+<!-- FOOTER -->
+
 <footer>
+
     <p>
         © 2026 Etsy Order Management App. All rights reserved.
     </p>
@@ -532,8 +653,9 @@
 
     <p>
         This application uses the Etsy API.
-        It is not affiliated with or endorsed by Etsy, Inc.
+        It is not affiliated with, operated by, or endorsed by Etsy, Inc.
     </p>
+
 </footer>
 
 </body>
